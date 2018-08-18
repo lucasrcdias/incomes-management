@@ -6,4 +6,6 @@ class User < ApplicationRecord
     presence: true,
     uniqueness: true,
     format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/ }
+
+  has_many :categories
 end

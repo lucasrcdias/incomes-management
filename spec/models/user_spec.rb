@@ -12,4 +12,8 @@ RSpec.describe User, type: :model do
     it { should_not allow_value('not_an_email').for(:email) }
     it { should_not allow_value('invalid@email').for(:email) }
   end
+
+  context "associations" do
+    it { should have_many(:categories) }
+  end
 end
