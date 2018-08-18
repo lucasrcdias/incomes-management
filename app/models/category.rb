@@ -4,4 +4,5 @@ class Category < ApplicationRecord
   validates :planned, presence: true, if: :expense?
 
   belongs_to :user
+  has_many :entries
 end

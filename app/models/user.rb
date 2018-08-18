@@ -9,4 +9,12 @@ class User < ApplicationRecord
 
   has_many :categories
   has_many :entries
+
+  def incomes
+    entries.income.sum(:value)
+  end
+
+  def expenses
+    entries.expense.sum(:value)
+  end
 end
