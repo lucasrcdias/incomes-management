@@ -8,4 +8,5 @@ class User < ApplicationRecord
     format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/ }
 
   has_many :categories
+  has_many :entries
 end
