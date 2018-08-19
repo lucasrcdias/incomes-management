@@ -11,10 +11,10 @@ class User < ApplicationRecord
   has_many :entries
 
   def incomes
-    entries.income.sum(:value)
+    entries.income
   end
 
   def expenses
-    entries.expense.sum(:value)
+    entries.expense
   end
 end
