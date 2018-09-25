@@ -4,5 +4,5 @@ class Category < ApplicationRecord
   validates :planned, presence: true, if: :expense?
 
   belongs_to :user
-  has_many :entries, dependent: :destroy_all
+  has_many :entries, dependent: :destroy
 end
