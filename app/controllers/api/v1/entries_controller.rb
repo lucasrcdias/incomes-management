@@ -1,19 +1,7 @@
 module API::V1
   class EntriesController < API::V1::BaseController
-    def index
-      render json: current_user.entries, status: :ok
-    end
-
-    def incomes
-      render json: current_user.incomes, status: :ok
-    end
-
-    def expenses
-      render json: current_user.expenses, status: :ok
-    end
-
     def create
-      entry = Entry.new(entry_params.merge(user: current_user))
+      entry = EntryService.new(entry_params.merge(user: current_user))
 
       if entry.save
         render json: entry, status: :created
@@ -50,7 +38,7 @@ module API::V1
     private
 
     def entry_params
-      params.require(:entry).permit(:value, :category_id)
+      params.require(:entry).permit(:value, :category_id, :description, :added_at)
     end
   end
 end
