@@ -1,5 +1,5 @@
 class Entry < ApplicationRecord
-  validates :value, presence: true
+  validates :description, :value, presence: true
 
   belongs_to :category
   belongs_to :user
