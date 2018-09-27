@@ -5,7 +5,8 @@ Rails.application.routes.draw do
       resources :categories, except: [:new, :edit, :show]
       resources :entries, except: [:new, :edit, :show, :index]
 
-      post '/sessions/new', to: 'sessions#new', as: :new_session
+      get '/dashboard',     to: 'dashboard#index', as: :dashboard
+      post '/sessions/new', to: 'sessions#new',    as: :new_session
     end
   end
 end
