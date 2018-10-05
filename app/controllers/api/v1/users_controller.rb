@@ -6,6 +6,7 @@ module API::V1
       user = User.new(user_params)
 
       if user.save
+        user.token = JsonWebToken.encode({ user_id: user.id })
         render json: user, status: :created
       else
         render json: { errors: user.errors }, status: :unprocessable_entity

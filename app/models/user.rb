@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :categories
   has_many :entries
 
+  attr_accessor :token
+
   def incomes
     entries.income
   end
