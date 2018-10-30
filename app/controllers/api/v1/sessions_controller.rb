@@ -9,7 +9,8 @@ module API::V1
         user = user.authenticate(user_params[:password])
 
         if user
-          render json: { token: JsonWebToken.encode({ user_id: user.id }) }, status: :authorized and return
+          user.token = JsonWebToken.encode({ user_id: user.id })
+          render json: user, status: :ok and return
         end
       end
 
