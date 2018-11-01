@@ -13,6 +13,10 @@ module API::V1
       end
     end
 
+    def me
+      render json: current_user, status: :ok
+    end
+
     private
 
     def user_params
